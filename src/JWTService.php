@@ -9,7 +9,6 @@ use Firebase\JWT\BeforeValidException;
 class JWTService
 {
     public $key;
-    public $jwt;
     public $algo;
     public $payload;
 
@@ -24,7 +23,7 @@ class JWTService
     public function parse(string $jwt)
     {
         if ($this->algo === 'HS256' || $this->algo === 'HS384' || $this->algo === 'HS512') {
-            $this->payload = JWT::decode($this->jwt, $this->key, [$this->algo]);
+            $this->payload = JWT::decode($jwt, $this->key, [$this->algo]);
         } else {
             // $privateKeyPath = base_path(config('jwt.keys.private'));
             $publicKeyPath = base_path(config('jwt.keys.public'));
@@ -32,10 +31,10 @@ class JWTService
             // $privateKey = file_get_contents($privateKeyPath);
             $publicKey = file_get_contents($publicKeyPath);
 
-            $this->payload = JWT::decode($this->jwt, $publicKey, [$this->algo]);
+            $this->payload = JWT::decode($jwt, $publicKey, [$this->algo]);
         }
 
-        $rules = null;
+        return $this->payload;
     }
 
     public function validate(array $rules)

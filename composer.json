@@ -1,0 +1,25 @@
+{
+    "name": "consilience/laravel-jwt",
+    "description": "PHP-JWT Wrapper for Laravel.",
+    "require": {
+        "firebase/php-jwt": "^5.0"
+    },
+    "authors": [
+        {
+            "name": "Michael Stokoe",
+            "email": "mstokoe0990@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Consilience\\LaravelJWT\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Consilience\\LaravelJWT\\LaravelJwtServiceProvider"
+            ]
+        }
+}
+}

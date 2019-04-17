@@ -1,5 +1,5 @@
 # laravel-jwt
-A PHP-JWT wrapper for Laravel
+### A PHP-JWT wrapper for Laravel
 ---
 
 

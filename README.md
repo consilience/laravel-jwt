@@ -43,6 +43,13 @@ Add the following to your _require_ array:
 },
 ```
 
+Dump composer's autoload cache
+
+```bash
+$ composer dump-autoload
+$ composer install
+```
+
 ## Publish assets
 
 `$ php artisan vendor:publish --provider='Consilience\LaravelJWT\LaravelJWTServiceProvider'`

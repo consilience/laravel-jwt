@@ -52,7 +52,7 @@ $ composer install
 
 ## Publish assets
 
-`$ php artisan vendor:publish --provider='Consilience\LaravelJWT\LaravelJWTServiceProvider'`
+`$ php artisan vendor:publish --provider='Consilience\LaravelJWT\LaravelJwtServiceProvider'`
 
 
 ---

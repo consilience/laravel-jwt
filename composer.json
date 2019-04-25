@@ -1,9 +1,11 @@
 {
     "name": "consilience/laravel-jwt",
     "description": "PHP-JWT Wrapper for Laravel.",
+    "type": "library",
     "require": {
         "firebase/php-jwt": "^5.0"
     },
+    "license": "MIT",
     "authors": [
         {
             "name": "Michael Stokoe",
@@ -15,11 +17,6 @@
             "Consilience\\LaravelJWT\\": "src/"
         }
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Consilience\\LaravelJWT\\LaravelJwtServiceProvider"
-            ]
-        }
-}
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

@@ -9,7 +9,12 @@ class LaravelJwtServiceProvider extends BaseServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/config/jwt.php' => config_path('jwt.php'),
-        ]);
+            __DIR__ . '/../config/jwt.php' => config_path('jwt.php'),
+        ], 'config');
+    }
+
+    public function register()
+    {
+        // ...
     }
 }

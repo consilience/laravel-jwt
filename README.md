@@ -24,9 +24,29 @@ Until released on packagist, include the repository in your `composer.json`:
     ]
 ```
 
-## Publish assets
+## Laravel
+
+### Publish Assets
 
 `$ php artisan vendor:publish --provider='Consilience\LaravelJWT\LaravelJwtServiceProvider'`
+
+## Lumen
+
+### Publish the Assents
+
+Manually copy the config file:
+
+    cp vendor/consilience/laravel-jwt/config/jwt.php config/jwt.php
+
+In `bootstrap/app.php`:
+
+    $app->configure('jwt');
+
+### Register the Service Provider
+
+In `bootstrap/app.php`:
+
+    $app->register(Consilience\LaravelJWT\LaravelJwtServiceProvider::class);
 
 ---
 

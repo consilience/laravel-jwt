@@ -7,53 +7,26 @@
 
 ## Composer
 
-`$ composer require consilience/laravel-jwt`
+    composer require consilience/laravel-jwt
 
-## Manual Install
+or more likely:
 
-### Clone Laravel JWT
+    composer require consilience/laravel-jwt dev-master
 
-`$ git clone https://github.com/consilience/laravel-jwt /path/to/project/packages/`
-
-`$ cd /path/to/project/`
-
-### Add to Project's Composer Config
-
-`$ nano composer.json` (Or edit with your preferred editor)
-
-Add the following to your _repositories_ array, or create it if it doesn't exist:
+Until released on packagist, include the repository in your `composer.json`:
 
 ```json
-"repositories": {
-    "dev-package": {
-        "type": "path",
-        "url": "./packages/consilience/laravel-jwt",
-        "options": {
-            "symlink": true
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:consilience/laravel-jwt.git"
         }
-    }
-}
-```
-
-Add the following to your _require_ array:
-
-```json
-"require": {
-    "consilience/laravel-jwt": "*"
-},
-```
-
-Dump composer's autoload cache
-
-```bash
-$ composer dump-autoload
-$ composer install
+    ]
 ```
 
 ## Publish assets
 
 `$ php artisan vendor:publish --provider='Consilience\LaravelJWT\LaravelJwtServiceProvider'`
-
 
 ---
 

@@ -1,11 +1,13 @@
 <?php
 
-namespace Consilience\LaravelJWT;
+namespace Consilience\LaravelJwt;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class LaravelJwtServiceProvider extends BaseServiceProvider
+class JwtServiceProvider extends BaseServiceProvider
 {
+    const CONTAINER_KEY = 'consilience-jwt-serivce';
+
     public function boot()
     {
         $this->publishes([
@@ -15,7 +17,9 @@ class LaravelJwtServiceProvider extends BaseServiceProvider
 
     public function register()
     {
-        // ...
+        $this->app->singleton(static::CONTAINER_KEY, function ($app) {
+            return new JwtService();
+        });
     }
 
     /**

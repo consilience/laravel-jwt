@@ -14,7 +14,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Consilience\\LaravelJWT\\": "src/"
+            "Consilience\\LaravelJwt\\": "src/"
         }
     },
     "minimum-stability": "dev",
@@ -22,7 +22,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Consilience\\LaravelJWT\\LaravelJwtServiceProvider"
+                "Consilience\\LaravelJwt\\JwtServiceProvider"
             ]
         }
     }

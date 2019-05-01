@@ -28,7 +28,7 @@ Until released on packagist, include the repository in your `composer.json`:
 
 ### Publish Assets
 
-`$ php artisan vendor:publish --provider='Consilience\LaravelJWT\LaravelJwtServiceProvider'`
+`$ php artisan vendor:publish --provider='Consilience\LaravelJwt\LaravelJwtServiceProvider'`
 
 ## Lumen
 
@@ -46,7 +46,17 @@ In `bootstrap/app.php`:
 
 In `bootstrap/app.php`:
 
-    $app->register(Consilience\LaravelJWT\LaravelJwtServiceProvider::class);
+    $app->register(Consilience\LaravelJwt\LaravelJwtServiceProvider::class);
+
+### Create a Facade
+
+In `bootstrap/app.php`:
+
+```php
+if (! class_exists('JwtService')) {
+    class_alias('Consilience\LaravelJwt\JwtServiceFacade', 'JwtService');
+}
+```
 
 ---
 
@@ -55,13 +65,13 @@ In `bootstrap/app.php`:
 First you'll want to import the class.
 
 ```php
-    use Consilience\LaravelJWT\JWTService;
+    use Consilience\LaravelJwt\JwtService;
 ```
 
-Now create an instance of the JWTService to use.
+Now create an instance of the JwtService to use.
 
 ```php
-    $jwt = new JWTService();
+    $jwt = new JwtService();
 ```
 
 Now you have access to the following methods:

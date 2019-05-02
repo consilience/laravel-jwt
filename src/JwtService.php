@@ -78,10 +78,6 @@ class JwtService
 
         $validator = Validator::make((array)$jwt, $rules);
 
-        if ($validator->fails()) {
-            return false;
-        }
-
-        return true;
+        return $validator->MessageBag();
     }
 }

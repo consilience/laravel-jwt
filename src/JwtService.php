@@ -67,17 +67,4 @@ class JwtService
 
         return $payload;
     }
-
-    /**
-     * @deprec remove; this just hides all the results of validation, with no benefits.
-     */
-    public function validateToken($jwt, array $rules)
-    {
-        // This allows you to run some custom validation against the payload of a JWT.
-        // Pass some rules (Standard Laravel validation logic) and the JWT.
-
-        $validator = Validator::make((array)$jwt, $rules);
-
-        return $validator->MessageBag();
-    }
 }

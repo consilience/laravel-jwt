@@ -23,6 +23,6 @@ return [
     'keys' => [
         'public' => env('JWT_PUBLIC_KEY'),
         'private' => env('JWT_PRIVATE_KEY'),
-        'passphrase' => env('JWT_PASSPHRASE'),
+        'passphrase' => env('JWT_PASSPHRASE', ''),
     ],
 ];

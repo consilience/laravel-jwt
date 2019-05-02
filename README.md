@@ -7,53 +7,56 @@
 
 ## Composer
 
-`$ composer require consilience/laravel-jwt`
+    composer require consilience/laravel-jwt
 
-## Manual Install
+or more likely:
 
-### Clone Laravel JWT
+    composer require consilience/laravel-jwt dev-master
 
-`$ git clone https://github.com/consilience/laravel-jwt /path/to/project/packages/`
-
-`$ cd /path/to/project/`
-
-### Add to Project's Composer Config
-
-`$ nano composer.json` (Or edit with your preferred editor)
-
-Add the following to your _repositories_ array, or create it if it doesn't exist:
+Until released on packagist, include the repository in your `composer.json`:
 
 ```json
-"repositories": {
-    "dev-package": {
-        "type": "path",
-        "url": "./packages/consilience/laravel-jwt",
-        "options": {
-            "symlink": true
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:consilience/laravel-jwt.git"
         }
-    }
+    ]
+```
+
+## Laravel
+
+### Publish Assets
+
+`$ php artisan vendor:publish --provider='Consilience\LaravelJwt\LaravelJwtServiceProvider'`
+
+## Lumen
+
+### Publish the Assents
+
+Manually copy the config file:
+
+    cp vendor/consilience/laravel-jwt/config/jwt.php config/jwt.php
+
+In `bootstrap/app.php`:
+
+    $app->configure('jwt');
+
+### Register the Service Provider
+
+In `bootstrap/app.php`:
+
+    $app->register(Consilience\LaravelJwt\LaravelJwtServiceProvider::class);
+
+### Create a Facade
+
+In `bootstrap/app.php`:
+
+```php
+if (! class_exists('JwtService')) {
+    class_alias('Consilience\LaravelJwt\JwtServiceFacade', 'JwtService');
 }
 ```
-
-Add the following to your _require_ array:
-
-```json
-"require": {
-    "consilience/laravel-jwt": "*"
-},
-```
-
-Dump composer's autoload cache
-
-```bash
-$ composer dump-autoload
-$ composer install
-```
-
-## Publish assets
-
-`$ php artisan vendor:publish --provider='Consilience\LaravelJWT\LaravelJwtServiceProvider'`
-
 
 ---
 
@@ -62,13 +65,13 @@ $ composer install
 First you'll want to import the class.
 
 ```php
-    use Consilience\LaravelJWT\JWTService;
+    use Consilience\LaravelJwt\JwtService;
 ```
 
-Now create an instance of the JWTService to use.
+Now create an instance of the JwtService to use.
 
 ```php
-    $jwt = new JWTService();
+    $jwt = new JwtService();
 ```
 
 Now you have access to the following methods:

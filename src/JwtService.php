@@ -31,6 +31,9 @@ class JwtService
         JWT::$leeway = config('jwt.leeway');
     }
 
+    /**
+     * TODO: What does this do? What is the signature?
+     */
     public function createToken($payload, $headers, $keyId)
     {
         // Small function to create a JWT.

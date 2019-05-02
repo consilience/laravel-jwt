@@ -15,7 +15,8 @@ use Firebase\JWT\JWT;
 class JwtService
 {
     /**
-     * TODO: What are these?
+     * $key : Hash used for encoding/decoding a JWT - Not required if using certificate-based encoding/decoding.
+     * $algo : Hashing method used for encoding/decoding a JWT
      */
     public $key;
     public $algo;
@@ -32,9 +33,14 @@ class JwtService
     }
 
     /**
-     * TODO: What does this do? What is the signature?
+     * createToken() : Creates a JWT using provided payload and headers.
+     * 
+     * @param $payload : The JWT Payload
+     * @param $headers : Any custom headers you wish to add to the JWT
+     * @param $keyId   : Used to set the 'kid' header
+     * 
      */
-    public function createToken($payload, $headers, $keyId)
+    public function createToken($payload, $headers = null, $keyId = null)
     {
         // Small function to create a JWT.
         // Encodes provided payload
@@ -44,7 +50,9 @@ class JwtService
     }
 
     /**
-     * TODO: What does this do?
+     * parseToken() : Decodes a JWT
+     * 
+     * @param $jwt : Encoded JWT to decode.
      */
     public function parseToken(string $jwt)
     {

@@ -23,12 +23,13 @@ class JWTService
         JWT::$leeway = config('jwt.leeway');
     }
 
-    public function createToken($payload)
+    public function createToken($payload, $headers, $keyId)
     {
         // Small function to create a JWT.
         // Encodes provided payload
-        $jwt = JWT::encode($payload, $this->key, $this->algo);
-
+        $jwt = JWT::encode($payload, $this->key, $this->algo, $keyId, $headers);
+        
+        // TODO: Add exp time to options
         return $jwt;
     }
 

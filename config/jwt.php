@@ -20,6 +20,8 @@ return [
     'algo' => env('JWT_ALGO', 'HS256'),
 
     // Keys: This is for when you're using RS256, RS512, or some other certification-based encoding.
+    // Path to key files.
+    // These paths start at base_path().
     'keys' => [
         'public' => env('JWT_PUBLIC_KEY'),
         'private' => env('JWT_PRIVATE_KEY'),

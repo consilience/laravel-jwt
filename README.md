@@ -57,6 +57,18 @@ if (! class_exists('JwtService')) {
     class_alias('Consilience\LaravelJwt\JwtServiceFacade', 'JwtService');
 }
 ```
+---
+
+# Configuration
+
+If you're using certificates for encoding/decoding JWTs, you'll need to specify the path to those files.
+
+JWT_SECRET=some-long-string
+JWT_LEEWAY_SECONDS=600
+JWT_ALGO=hs256
+JWT_PUBLIC_KEY='storage/app/certs/somefile.cer'
+JWT_PRIVATE_KEY='storage/app/certs/somefile.pem'
+JWT_PASSPHRASE=some-long-string
 
 ---
 
